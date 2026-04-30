@@ -1,9 +1,17 @@
 import time
 
 from selenium.common.exceptions import NoSuchElementException
-from wait_for import wait_for
 from selenium.webdriver.common.by import By
-from widgetastic.widget import Checkbox, Text, TextInput, View, Widget
+from wait_for import wait_for
+from widgetastic.utils import ParametrizedLocator
+from widgetastic.widget import (
+    Checkbox,
+    ParametrizedView,
+    Text,
+    TextInput,
+    View,
+    Widget,
+)
 from widgetastic.widget.table import Table
 from widgetastic_patternfly4 import (
     Button,
@@ -163,6 +171,7 @@ class HostsView(BaseLoggedInView, SearchableViewMixinPF4):
 
 class BreadcrumbSwitcher(Widget):
     """Breadcrumb switcher widget for switching between hosts."""
+
     ROOT = './/div[contains(@class, "pf4-breadcrumb-switcher")]'
 
     # Toggle button to open/close the menu
